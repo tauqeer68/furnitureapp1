@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @mattress %>
+<%= render partial: 'shops/shop', locals: {shop:@mattress} %>
+
+<div>
+  <%= link_to "Edit this mattress", edit_mattress_path(@mattress) %> |
+  <%= link_to "Back to mattresses", mattresses_path %>
+
+  <%= button_to "Destroy this mattress", @mattress, method: :delete %>
+</div>
