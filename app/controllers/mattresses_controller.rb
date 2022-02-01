@@ -8,6 +8,8 @@ class MattressesController < ApplicationController
 
   # GET /mattresses/1 or /mattresses/1.json
   def show
+    @shop = Shop.all
+    @mattress = Mattress.find(params[:id])
   end
 
   # GET /mattresses/new
@@ -65,6 +67,6 @@ class MattressesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mattress_params
-      params.require(:mattress).permit(:mattress_name)
+      params.require(:mattress).permit(:mattress_name, :shop_name)
     end
 end
