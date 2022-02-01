@@ -4,10 +4,12 @@ class ShopsController < ApplicationController
   # GET /shops or /shops.json
   def index
     @shops = Shop.all
+    @mattresses = Mattress.all
   end
 
   # GET /shops/1 or /shops/1.json
   def show
+    @shop = Shop.find(params[:id])
   end
 
   # GET /shops/new
@@ -23,7 +25,9 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     if @shop.save
-      redirect_to new_mattress_path
+      redirect_to new_mattress_path(@shop)
+    else
+      render :new
     end
 
 

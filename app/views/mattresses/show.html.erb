@@ -1,7 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @mattress %>
-<%= render partial: 'shops/shop', locals: {shop:@mattress} %>
+<%= render partial: "shops/shop", locals: {shop: @shop} %>
+
 
 <div>
   <%= link_to "Edit this mattress", edit_mattress_path(@mattress) %> |
