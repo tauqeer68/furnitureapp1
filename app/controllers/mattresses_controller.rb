@@ -9,18 +9,13 @@ class MattressesController < ApplicationController
 
   # GET /mattresses/1 or /mattresses/1.json
   def show
-<<<<<<< HEAD
+
     @mattress = Mattress.find(params[:id])
     @mattress1 = Mattress.maximum(:id)
     @shop = Shop.find(params[:id])
     @shop1 = Shop.maximum(:id)
 
 
-
-=======
-    @shop = Shop.all
-    @mattress = Mattress.find(params[:id])
->>>>>>> d3844b05a9caa7deff19fe34d29fb85bfe611900
   end
 
   # GET /mattresses/new
