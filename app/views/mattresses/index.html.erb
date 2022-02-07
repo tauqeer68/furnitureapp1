@@ -2,11 +2,21 @@
 
 <h1>Mattresses</h1>
 
+<%= link_to "Back to Shop", new_shop_path %>
+
 <div id="mattresses">
   <% @mattresses.each do |mattress| %>
     <%= render mattress %>
     <p>
       <%= link_to "Show this mattress", mattress %>
+    </p>
+  <% end %>
+</div>
+<div id="shops">
+  <% @shops.each do |shop| %>
+    <%= render shop %>
+    <p>
+      <%= link_to "Show this mattress", shop %>
     </p>
   <% end %>
 </div>

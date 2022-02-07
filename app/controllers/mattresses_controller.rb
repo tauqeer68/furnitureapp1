@@ -4,12 +4,18 @@ class MattressesController < ApplicationController
   # GET /mattresses or /mattresses.json
   def index
     @mattresses = Mattress.all
+    @shops = Shop.all
   end
 
   # GET /mattresses/1 or /mattresses/1.json
   def show
-    @shop = Shop.all
     @mattress = Mattress.find(params[:id])
+    @mattress1 = Mattress.maximum(:id)
+    @shop = Shop.find(params[:id])
+    @shop1 = Shop.maximum(:id)
+
+
+
   end
 
   # GET /mattresses/new
@@ -23,16 +29,15 @@ class MattressesController < ApplicationController
 
   # POST /mattresses or /mattresses.json
   def create
+
     @mattress = Mattress.new(mattress_params)
 
-    respond_to do |format|
-      if @mattress.save
-        format.html { redirect_to mattress_url(@mattress), notice: "Mattress was successfully created." }
-        format.json { render :show, status: :created, location: @mattress }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @mattress.errors, status: :unprocessable_entity }
-      end
+    if @mattress.save
+      redirect_to mattress_path(@mattress)
+
+
+    else
+      render :edit
     end
   end
 
@@ -63,10 +68,12 @@ class MattressesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_mattress
       @mattress = Mattress.find(params[:id])
+
     end
 
     # Only allow a list of trusted parameters through.
     def mattress_params
       params.require(:mattress).permit(:mattress_name, :shop_name)
     end
+
 end

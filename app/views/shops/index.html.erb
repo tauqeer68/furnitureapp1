@@ -2,6 +2,8 @@
 
 <h1>Shops</h1>
 
+<%= link_to "New shop", new_shop_path %>
+
 <div id="shops">
   <% @shops.each do |shop| %>
     <%= render shop %>
@@ -11,4 +13,4 @@
   <% end %>
 </div>
 
-<%= link_to "New shop", new_shop_path %>
+

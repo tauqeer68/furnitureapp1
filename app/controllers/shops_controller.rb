@@ -15,6 +15,7 @@ class ShopsController < ApplicationController
   # GET /shops/new
   def new
     @shop = Shop.new
+
   end
 
   # GET /shops/1/edit
@@ -24,6 +25,7 @@ class ShopsController < ApplicationController
   # POST /shops or /shops.json
   def create
     @shop = Shop.new(shop_params)
+
     if @shop.save
       redirect_to new_mattress_path(@shop)
     else
@@ -65,5 +67,8 @@ class ShopsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def shop_params
       params.require(:shop).permit(:shop_name)
+    end
+    def mattress_params
+     params.require(:mattress).permit(:mattress_name, :shop_name)
     end
 end

@@ -2,11 +2,25 @@
 
 <%= render @mattress %>
 <%= render partial: "shops/shop", locals: {shop: @shop} %>
-
+<p> Shop ID </p>
+<%= @shop.id %>
+<%= @shop1 %>
+<br>
+<p> Mattress ID </p>
+<%= @mattress.id %>
+<%= @mattress1 %>
 
 <div>
-  <%= link_to "Edit this mattress", edit_mattress_path(@mattress) %> |
-  <%= link_to "Back to mattresses", mattresses_path %>
+  <%= link_to "Back to Shop", new_shop_path %>
+  <br>
+  <%= link_to "Back to Mattress", new_mattress_path %>
+  <br>
+  <%= link_to "View all", mattresses_path %>
+  <br>
+  <%= link_to "Edit this mattress", edit_mattress_path(@mattress) %>
+
+  <br>
+
 
   <%= button_to "Destroy this mattress", @mattress, method: :delete %>
 </div>
